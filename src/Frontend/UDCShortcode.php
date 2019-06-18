@@ -74,13 +74,17 @@
          $ctaTemplate.='</div>';
      }
      $ctaTemplate.='</div>';
+     $ctaTemplate.='<div>';
      if($this->ctaBullet1) {
-         $ctaTemplate.='<div>';
-         $ctaTemplate.='<p class="bullet">' . $this->ctaBullet1 . '</p>';
-         $ctaTemplate.='<p class="bullet">' . $this->ctaBullet2 . '</p>';
-         $ctaTemplate.='<p class="bullet">' . $this->ctaBullet3 . '</p>';
-         $ctaTemplate.='</div>';
+         $ctaTemplate .= '<p class="bullet">' . $this->ctaBullet1 . '</p>';
      }
+     if($this->ctaBullet2) {
+         $ctaTemplate .= '<p class="bullet">' . $this->ctaBullet2 . '</p>';
+     }
+     if($this->ctaBullet3) {
+         $ctaTemplate .= '<p class="bullet">' . $this->ctaBullet3 . '</p>';
+     }
+     $ctaTemplate.='</div>';
      $ctaTemplate.='<div class="copy-code-container" bookmaker="' . $this->a['bookmaker'] . '">';
        if($this->ctaAffiliateLink && $this->ctaBonuscode) {
            $ctaTemplate.='<div class="bonuscode-container">';
