@@ -84,6 +84,7 @@
         font-weight: 700;
         letter-spacing: 6px;
         transform: rotate(5deg);
+        user-select: none;
         @media (max-width: 767px) {
           font-size: 14px;
         }
