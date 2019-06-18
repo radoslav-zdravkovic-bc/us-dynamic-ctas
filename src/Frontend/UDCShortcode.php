@@ -16,6 +16,7 @@
    public $getBlur;
    public $ctaHeading;
    public $ctaDescription;
+   public $ctaBookmakerLogo;
    public $ctaBullet1;
    public $ctaBullet2;
    public $ctaBullet3;
@@ -66,6 +67,7 @@
      $ctaTemplate.='</style>';
      $ctaTemplate.='<div class="top-border"></div>';
      $ctaTemplate.='<div class="fb-top">';
+     $ctaTemplate.='<img src="' . $this->ctaBookmakerLogo["url"] . '">';
      $ctaTemplate.='<h4 class="dynamic-cta-block-heading">' . $this->ctaHeading . '</h4>';
      if($this->ctaBadgeEnable) {
          $ctaTemplate.='<div class="fb-badge">';
@@ -134,7 +136,7 @@
        include 'settings/shortcode-settings.php';
 
        foreach ($ctaShortcodes as $ctaShortcode) {
-           if($this->a['bookmaker'] === $ctaShortcode['bookmaker_name']) {
+           if($this->a['bookmaker'] === $ctaShortcode['bookmaker_info']['bookmaker_name']) {
                for ($i = 0; $i < count($ctaShortcode['cta_info']); $i++) {
                    array_push($statesArray, $ctaShortcode['cta_info'][$i]['state']);
                }
@@ -160,6 +162,7 @@
      private function setVariables($i, $ctaShortcode, $ctaShortcodesColorSettings) {
          $this->ctaHeading = $ctaShortcode['cta_info'][$i]['heading'];
          $this->ctaDescription = $ctaShortcode['cta_info'][$i]['description'];
+         $this->ctaBookmakerLogo = $ctaShortcode['bookmaker_info']['bookmaker_logo'];
          $this->ctaBullet1 = $ctaShortcode['cta_info'][$i]['bullets']['bullet_1'];
          $this->ctaBullet2 = $ctaShortcode['cta_info'][$i]['bullets']['bullet_2'];
          $this->ctaBullet3 = $ctaShortcode['cta_info'][$i]['bullets']['bullet_3'];

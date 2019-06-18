@@ -9,11 +9,11 @@
   background-image: linear-gradient(#fff,#e6e6e6);
   box-shadow: 0 3px 6px rgba(0,0,0,.16);
   @media (max-width: 767px) {
-    padding-top: 35px;
+    padding-top: 55px;
     text-align: center;
   }
   h4 {
-    margin-bottom: 10px;
+    margin: 10px 0;
   }
 
   p {
@@ -48,6 +48,10 @@
       @media (max-width: 767px) {
         font-size: 16px;
       }
+    }
+    img {
+      height: 60px;
+      width: auto;
     }
     .fb-badge {
       display: inline-block;
