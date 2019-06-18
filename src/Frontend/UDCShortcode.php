@@ -16,6 +16,9 @@
    public $getBlur;
    public $ctaHeading;
    public $ctaDescription;
+   public $ctaBullet1;
+   public $ctaBullet2;
+   public $ctaBullet3;
    public $ctaAffiliateLink;
    public $ctaButtonText;
    public $ctaBadgeEnable;
@@ -53,6 +56,7 @@
      $ctaTemplate='<div class="container dynamic-cta-block">';
      $ctaTemplate.='<style>';
      $ctaTemplate.='.dynamic-cta-block .copy-code-container .bonuscode-container .bonuscode {color:' . $this->ctaBonuscodeTextColor . ';}';
+     $ctaTemplate.='.dynamic-cta-block p.bullet:before {color:' . $this->ctaButtonBottomColor . ';}';
      $ctaTemplate.='.dynamic-cta-block .top-border {background: linear-gradient(' . $this->ctaTopBorderTopColor . ',' . $this->ctaTopBorderBottomColor .');}';
      $ctaTemplate.='.dynamic-cta-block .fb-top .fb-badge {background: linear-gradient(90deg,' . $this->ctaBadgeSidesColor . ',' . $this->ctaBadgeCentralColor .',' . $this->ctaBadgeSidesColor .');}';
      $ctaTemplate.='.dynamic-cta-block a.bc1 {background: linear-gradient(' . $this->ctaButtonTopColor . ' 1%,' . $this->ctaButtonCentralColor . ' 20%,' . $this->ctaButtonBottomColor .'); border: 1px solid ' . $this->ctaButtonBottomColor .';}';
@@ -70,7 +74,13 @@
          $ctaTemplate.='</div>';
      }
      $ctaTemplate.='</div>';
-     $ctaTemplate.='<p class="dynamic-cta-block-description">' . $this->ctaDescription . '</p>';
+     if($this->ctaBullet1) {
+         $ctaTemplate.='<div>';
+         $ctaTemplate.='<p class="bullet">' . $this->ctaBullet1 . '</p>';
+         $ctaTemplate.='<p class="bullet">' . $this->ctaBullet2 . '</p>';
+         $ctaTemplate.='<p class="bullet">' . $this->ctaBullet3 . '</p>';
+         $ctaTemplate.='</div>';
+     }
      $ctaTemplate.='<div class="copy-code-container" bookmaker="' . $this->a['bookmaker'] . '">';
        if($this->ctaAffiliateLink && $this->ctaBonuscode) {
            $ctaTemplate.='<div class="bonuscode-container">';
@@ -100,6 +110,7 @@
            $ctaTemplate.='</a>';
        }
      $ctaTemplate.='</div>';
+       $ctaTemplate.='<p class="dynamic-cta-block-description">' . $this->ctaDescription . '</p>';
      $ctaTemplate.='</div>';
 
      return $ctaTemplate;
@@ -145,6 +156,9 @@
      private function setVariables($i, $ctaShortcode, $ctaShortcodesColorSettings) {
          $this->ctaHeading = $ctaShortcode['cta_info'][$i]['heading'];
          $this->ctaDescription = $ctaShortcode['cta_info'][$i]['description'];
+         $this->ctaBullet1 = $ctaShortcode['cta_info'][$i]['bullets']['bullet_1'];
+         $this->ctaBullet2 = $ctaShortcode['cta_info'][$i]['bullets']['bullet_2'];
+         $this->ctaBullet3 = $ctaShortcode['cta_info'][$i]['bullets']['bullet_3'];
          $this->ctaAffiliateLink = $ctaShortcode['cta_info'][$i]['bonus_button']['affiliate_link'];
          $this->ctaButtonText = $ctaShortcode['cta_info'][$i]['bonus_button']['button_text'];
          $this->ctaBonuscode = $ctaShortcode['cta_info'][$i]['bonus_button']['bonuscode'];

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: FontAwesome;
+  src: url(../fonts/fa-solid-900.ttf);
+}
+
 .dynamic-cta-block {
   position: relative;
   padding: 20px;
@@ -6,8 +11,29 @@
   @media (max-width: 767px) {
     padding-top: 35px;
   }
+  h4 {
+    margin-bottom: 10px;
+  }
+
   p {
     font-size: 12px;
+    &.bullet {
+      font-size: 14px;
+      margin-bottom: 0;
+      font-weight: bold;
+      border-bottom: 1px solid #cccccc;
+      text-transform: uppercase;
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 10px;
+      }
+      &:before {
+        content: "\f0a9";
+        width: 10px;
+        font-family: "FontAwesome";
+        margin-right: 5px;
+      }
+    }
   }
   .top-border {
     height: 6px;

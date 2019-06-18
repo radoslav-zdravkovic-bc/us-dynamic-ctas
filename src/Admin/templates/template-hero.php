@@ -4,6 +4,7 @@
           <h3 class="bc-geolocation-warning">Please, install BC Geolocation plugin first if you want US Dynamic CTAs to work properly!</h3>
       <?php die(); } ?>
       <h1>US Dynamic CTAs</h1>
+        <h4><strong>You need ACF Pro and BC Geolocation plugins installed first!</strong></h4>
       <p>This plugin is used to generate shortcodes that display dynamic CTAs.</p>
       <p>The shortcode structure is [cta_shortcode bookmaker="<i>bookmaker_name</i>"]</p>
       <p>Don't forget to select default bonus info by checking "Make it default checkbox"</p>
