@@ -1,0 +1,14 @@
+{
+ "name": "bettercollective/us-dynamic-ctas",
+ "authors": [
+    {
+      "name": "Radoslav Zdravkovic BC",
+      "email": "rzdravkovic@bettercollective.com"
+    }
+  ],
+ "autoload": {
+   "psr-4": {
+     "USDynamicCTAs\\" : "src/"
+   }
+ }
+}
