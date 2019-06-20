@@ -13,4 +13,19 @@ with two submenu items.
 
 # How to use it?
 
-After the installation process, navigate to Shortcodes Settings. 
+After the installation process, navigate to Shortcodes Settings (/wp-admin/admin.php?page=shortcodes-settings).
+In this section, you have General Settings tab where you can set colours, and you have Shortcodes tab, the place
+where you'll create shortcodes.
+
+#### Generating Shortcodes
+
+Go to Shortcodes tab and click Add Row button. Add required data to the fields.
+On the right side of a row, you'll have to set a bookmaker name and upload its logo.
+On the left, you'll have to add bonus info for certain states. Desired state is choosen from 
+a dropdown menu. New state is added by clicking Add Row button in the left box.
+Don't forget to choose default info (displayed in states for which we didn't set the CTA).
+Pay attention at Bookmaker Field, because bookmaker name is the only shortcode attribute you'll need.
+Shortcodes should look like this [cta_shortcode bookmaker="bookmaker_name"] 
+Add it to your WP posts or page in order to display CTA.
+
+
