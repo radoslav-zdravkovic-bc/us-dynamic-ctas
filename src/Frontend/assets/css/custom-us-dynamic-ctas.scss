@@ -3,55 +3,105 @@
   src: url(../fonts/fa-solid-900.ttf);
 }
 
-.dynamic-cta-block {
+@font-face {
+  font-family: Avenir;
+  src: url(../fonts/Avenir.ttf);
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(../fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: Norwester;
+  src: url(../fonts/Norwester.otf);
+}
+
+@font-face {
+  font-family: Courier;
+  src: url(../fonts/Cour.otf);
+}
+
+.dynamic-cta-block.container {
   position: relative;
-  padding: 20px;
-  background-image: linear-gradient(#fff,#e6e6e6);
+  padding: 30px;
   box-shadow: 0 3px 6px rgba(0,0,0,.16);
   @media (max-width: 767px) {
     padding-top: 55px;
-    text-align: center;
-  }
-  h4 {
-    margin: 10px 0;
   }
 
+  @media (min-width: 660px) {
+    max-width: 660px !important;
+    margin: 32px auto !important;
+  }
+  h4 {
+    margin: 15px 0 10px;
+    color: #444444;
+    font-family: 'Norwester';
+    font-weight: 100;
+  }
+
+  .bullets-container {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 767px) {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
   p {
     font-size: 12px;
+    &.dynamic-cta-block-description {
+      color: #676767;
+      line-height: 1.5;
+      font-family: 'Lato';
+    }
     &.bullet {
-      font-size: 14px;
+      font-size: 16px;
       margin-bottom: 0;
       font-weight: bold;
-      border-bottom: 1px solid #cccccc;
-      text-transform: uppercase;
+      text-transform: capitalize;
+      color: #444444;
+      font-family: 'Avenir';
       &:last-child {
         border-bottom: none;
         margin-bottom: 10px;
       }
       &:before {
-        content: "\f0a9";
+        content: "\f058";
         width: 10px;
         font-family: "FontAwesome";
         margin-right: 5px;
       }
+
+      @media (max-width: 767px) {
+        margin-bottom: 5px;
+      }
     }
   }
   .top-border {
-    height: 6px;
+    height: 10px;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
   }
   .fb-top {
+    text-align: center;
     h4 {
+      font-size: 32px;
+      text-transform: uppercase;
       @media (max-width: 767px) {
-        font-size: 16px;
+        font-size: 24px;
       }
     }
     img {
-      height: 60px;
+      height: 56px;
       width: auto;
+      border-radius: 4px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     }
     .fb-badge {
       display: inline-block;
@@ -59,22 +109,39 @@
       position: absolute;
       top: 0;
       right: 20px;
-      padding: 15px 10px;
-      box-shadow: 0 3px 6px rgba(0,0,0,.16);
+      padding: 15px 10px 0;
+      box-shadow: 0 3px 20px rgba(0,0,0,.16);
       z-index: 9999;
+      .ribbon-before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        z-index: 997;
+      }
+
+      .ribbon-after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        z-index: 998;
+      }
       @media (max-width: 767px) {
-        padding: 10px 10px;
+        padding: 10px 10px 0;
       }
       p {
         margin: 0;
         line-height: 1;
-        color: #fff;
         &.small-text {
           font-size: 12px;
+          font-family: 'Avenir';
+          text-transform: uppercase;
         }
         &.big-text {
           font-size: 24px;
-          font-weight: bold;
+          font-weight: 100;
+          font-family: 'Norwester';
           @media (max-width: 767px) {
             font-size: 16px;
           }
@@ -87,13 +154,9 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 40px;
-    width: 450px;
+    height: 47px;
     @media (max-width: 991px) {
       width: 100%;
-    }
-    @media (max-width: 767px) {
-      height: 32px;
     }
     .bonuscode-container {
       border: 1px solid #d8d8d8;
@@ -111,30 +174,29 @@
         font-size: 16px;
         text-transform: uppercase;
         margin: auto;
-        font-family: Courier;
+        font-family: 'Courier';
         font-weight: 700;
         letter-spacing: 6px;
         transform: rotate(5deg);
         user-select: none;
         @media (max-width: 767px) {
-          font-size: 14px;
+          font-size: 12px;
+          letter-spacing: 2px;
         }
       }
     }
     a.bc1 {
-      padding: 8px 16px;
-      font-size: 14px;
+      padding: 11px 16px;
+      font-size: 16px;
       text-transform: uppercase;
       color: #fff;
       font-weight: 900;
       font-family: inherit;
       text-decoration: none;
-      @media (max-width: 767px) {
-        padding: 6px 12px;
-        font-size: 12px;
-        &.no-bonuscode-button {
-          margin: 0 auto;
-        }
+      font-family: 'Norwester';
+      font-weight: 100;
+      &.no-bonuscode-button {
+        width: 100%;
       }
     }
   }

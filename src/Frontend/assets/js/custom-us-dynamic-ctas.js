@@ -38,5 +38,23 @@ checkReady(function(jQuery) {
       jQuery(this).empty().css('pointer-events', 'none').addClass('copied').prepend('Code Copied!');
     });
 
+    // Badge - Ribbon styles
+
+    function drawRibon() {
+      var top = jQuery('.fb-badge').outerHeight();
+      var width = jQuery('.fb-badge').outerWidth();
+      var color = jQuery('.fb-badge').css('background-color');
+
+      jQuery('.fb-badge .ribbon-before').css({'left': '0', 'top': top, 'border-top': '30px solid ' + color, 'border-right': width + 'px solid transparent' });
+      jQuery('.fb-badge .ribbon-after').css({'left': '0', 'top': top, 'border-top': '30px solid ' + color, 'border-left': width + 'px solid transparent' });
+    }
+
+    drawRibon();
+
+    jQuery(window).resize(function() {
+      drawRibon();
+    });
+
+
   }); // END OF DOCUMENT READY
 }); // END OF CHECKREADY

@@ -30,13 +30,12 @@
 
    // Styles Variables
    public $ctaBonuscodeTextColor;
-   public $ctaTopBorderTopColor;
-   public $ctaTopBorderBottomColor;
-   public $ctaBadgeSidesColor;
-   public $ctaBadgeCentralColor;
-   public $ctaButtonTopColor;
-   public $ctaButtonCentralColor;
-   public $ctaButtonBottomColor;
+   public $ctaTopBorderColor;
+   public $ctaBackgroundColor;
+   public $ctaBadgeColor;
+   public $ctaBadgeBackgroundColor;
+   public $ctaButtonRightColor;
+   public $ctaButtonLeftColor;
    public $ctaBonuscodeBlurClass;
    public $ctaBonuscodeEmptyClass;
 
@@ -56,14 +55,14 @@
 
      $ctaTemplate='<div class="container dynamic-cta-block">';
      $ctaTemplate.='<style>';
+     $ctaTemplate.='.dynamic-cta-block {background:' . $this->ctaBackgroundColor . ';}';
      $ctaTemplate.='.dynamic-cta-block .copy-code-container .bonuscode-container .bonuscode {color:' . $this->ctaBonuscodeTextColor . ';}';
-     $ctaTemplate.='.dynamic-cta-block p.bullet:before {color:' . $this->ctaButtonBottomColor . ';}';
-     $ctaTemplate.='.dynamic-cta-block .top-border {background: linear-gradient(' . $this->ctaTopBorderTopColor . ',' . $this->ctaTopBorderBottomColor .');}';
-     $ctaTemplate.='.dynamic-cta-block .fb-top .fb-badge {background: linear-gradient(90deg,' . $this->ctaBadgeSidesColor . ',' . $this->ctaBadgeCentralColor .',' . $this->ctaBadgeSidesColor .');}';
-     $ctaTemplate.='.dynamic-cta-block a.bc1 {background: linear-gradient(' . $this->ctaButtonTopColor . ' 1%,' . $this->ctaButtonCentralColor . ' 20%,' . $this->ctaButtonBottomColor .'); border: 1px solid ' . $this->ctaButtonBottomColor .';}';
-     $ctaTemplate.='.dynamic-cta-block a.bc1:hover {background: linear-gradient(' . $this->ctaButtonBottomColor . ' 1%,' . $this->ctaButtonCentralColor . ' 80%,' . $this->ctaButtonTopColor .');}';
-     $ctaTemplate.= '.dynamic-cta-block .copy-code-container .bonuscode-container p.blured {color: transparent; text-shadow: 0 0 13px ' . $this->ctaButtonBottomColor . ';}';
-       $ctaTemplate.='.dynamic-cta-block a.bc1.copied {background: linear-gradient(' . $this->ctaBadgeCentralColor . ' 1%,' . $this->ctaBadgeSidesColor . ' 20%,' . $this->ctaTopBorderBottomColor .'); border: 1px solid ' . $this->ctaTopBorderTopColor .';}';
+     $ctaTemplate.='.dynamic-cta-block p.bullet:before {color:' . $this->ctaButtonRightColor . ';}';
+     $ctaTemplate.='.dynamic-cta-block .top-border {background:' . $this->ctaTopBorderColor . ';}';
+     $ctaTemplate.='.dynamic-cta-block .fb-top .fb-badge {color:' . $this->ctaBadgeColor . '; background: ' . $this->ctaBadgeBackgroundColor . ';}';
+     $ctaTemplate.='.dynamic-cta-block a.bc1 {background: linear-gradient(90deg, '. $this->ctaButtonLeftColor . ',' . $this->ctaButtonRightColor .');}';
+     $ctaTemplate.='.dynamic-cta-block a.bc1:hover {background: linear-gradient(90deg,' . $this->ctaButtonRightColor . ' 0%,' . $this->ctaButtonLeftColor . ' 100%);}';
+     $ctaTemplate.= '.dynamic-cta-block .copy-code-container .bonuscode-container p.blured {color: transparent; text-shadow: 0 0 13px ' . $this->ctaButtonRightColor . ';}';
      $ctaTemplate.='</style>';
      $ctaTemplate.='<div class="top-border"></div>';
      $ctaTemplate.='<div class="fb-top">';
@@ -71,12 +70,14 @@
      $ctaTemplate.='<h4 class="dynamic-cta-block-heading">' . $this->ctaHeading . '</h4>';
      if($this->ctaBadgeEnable) {
          $ctaTemplate.='<div class="fb-badge">';
+         $ctaTemplate.='<div class="ribbon-before"></div>';
+         $ctaTemplate.='<div class="ribbon-after"></div>';
          $ctaTemplate.='<p class="small-text">' . $this->ctaBadgeSmallText . '</p>';
          $ctaTemplate.='<p class="big-text">' . $this->ctaBadgeBigText . '</p>';
          $ctaTemplate.='</div>';
      }
      $ctaTemplate.='</div>';
-     $ctaTemplate.='<div>';
+     $ctaTemplate.='<div class="bullets-container">';
      if($this->ctaBullet1) {
          $ctaTemplate .= '<p class="bullet">' . $this->ctaBullet1 . '</p>';
      }
@@ -176,13 +177,12 @@
 
          // Styles Variables Setting
          $this->ctaBonuscodeTextColor = $ctaShortcodesColorSettings['bonuscode_text_color'];
-         $this->ctaTopBorderTopColor = $ctaShortcodesColorSettings['border_top_gradient']['top_color'];
-         $this->ctaTopBorderBottomColor = $ctaShortcodesColorSettings['border_top_gradient']['bottom_color'];
-         $this->ctaBadgeSidesColor = $ctaShortcodesColorSettings['badge_gradient']['sides_color'];
-         $this->ctaBadgeCentralColor = $ctaShortcodesColorSettings['badge_gradient']['central_color'];
-         $this->ctaButtonTopColor = $ctaShortcodesColorSettings['button_gradient']['top_color'];
-         $this->ctaButtonCentralColor = $ctaShortcodesColorSettings['button_gradient']['central_color'];
-         $this->ctaButtonBottomColor = $ctaShortcodesColorSettings['button_gradient']['bottom_color'];
+         $this->ctaTopBorderColor = $ctaShortcodesColorSettings['border_top_color'];
+         $this->ctaBackgroundColor = $ctaShortcodesColorSettings['background_color'];
+         $this->ctaBadgeBackgroundColor = $ctaShortcodesColorSettings['badge_color']['background_color'];
+         $this->ctaBadgeColor = $ctaShortcodesColorSettings['badge_color']['color'];
+         $this->ctaButtonLeftColor = $ctaShortcodesColorSettings['button_gradient']['left_color'];
+         $this->ctaButtonRightColor = $ctaShortcodesColorSettings['button_gradient']['right_color'];
      }
 
      public function usDynamicCtasCssAndJsLoad() {
