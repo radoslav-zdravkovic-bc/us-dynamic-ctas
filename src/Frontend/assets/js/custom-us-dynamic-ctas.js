@@ -56,5 +56,12 @@ checkReady(function(jQuery) {
     });
 
 
+    // Add "Register Now" link
+    jQuery('.dynamic-cta-block .copy-code-container').each(function() {
+      var href = jQuery( this ).find('a.copy-bonus-code').attr('href');
+      jQuery( this ).after( "<p class='register_link'><a href='"+ href +"'>Register Now</a></p>" );
+
+    });
+
   }); // END OF DOCUMENT READY
 }); // END OF CHECKREADY
